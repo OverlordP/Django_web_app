@@ -1,0 +1,38 @@
+{% extends 'layaout.html' %} {% block content %}
+
+<div class="row row-cols-1 row-cols-md-3 g-4 text-center">
+<!--     <h3>My Projects</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aperiam?</p> -->
+
+    {% for carta in cartas %}
+
+<!--     <div class="col-md-4 p-4">
+        <div class="card text-white bg-secondary mb-3" style="max-width: 20rem">
+
+            <div class="card-header">{{ carta.title }}</div>
+            <div class="card-body">
+                <h4 class="card-title">{{ carta.name }}</h4>
+                <p class="card-text">{{ carta.description|truncatechars:7 }}</p>
+                <img src={{ carta.Url }}
+                class="card-img-top">
+            </div>
+        </div>
+    </div> -->
+
+    <div class="col-md-4 p-4">
+        <div class="card">
+            <img src={{ carta.Url }}
+            class="img-top"
+             height="330px">
+
+          <div class="card-header">{{ carta.title }}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{ carta.name }}</h5>
+            <p class="card-text">{{ carta.description|truncatechars:50 }}</p>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
