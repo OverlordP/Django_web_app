@@ -1,27 +1,11 @@
 {% extends 'layaout.html' %} {% block content %}
-
-
-
-
-
-<div class="row row-cols-1 row-cols-md-3 g-4 text-center" data-masonry='{"percentPosition": true }' >
+<!-- añadir esto , pero no recomendable -->
+<!-- data-masonry='{"percentPosition": true }' -->
+<div class="row row-cols-1 row-cols-md-3 g-4 text-center"  id="cartitas">
 
     {% for carta in cartas %}
 
-<!--     <div class="col-md-4 p-4">
-        <div class="card text-white bg-secondary mb-3" style="max-width: 20rem">
-
-            <div class="card-header">{{ carta.title }}</div>
-            <div class="card-body">
-                <h4 class="card-title">{{ carta.name }}</h4>
-                <p class="card-text">{{ carta.description|truncatechars:7 }}</p>
-                <img src={{ carta.Url }}
-                class="card-img-top">
-            </div>
-        </div>
-    </div> -->
-
-    <div class="col-md-4 col-sm-6 p-4">
+    <div class="col-md-4 col-sm-6 p-4" id="cuto">
         <div class="card">
             <img loading="lazy"
             src={{ carta.Url }}
@@ -30,7 +14,7 @@
 
           <div class="card-header">{{ carta.title }}</div>
           <div class="card-body">
-            <h5 class="card-title">{{ carta.name }}</h5>
+            <h5 class="card-title" id="cuto2">{{ carta.name }}</h5>
             <p class="card-text">{{ carta.description|truncatechars:50 }}<strong><a href="/cartas/{{ carta.id }}/" style="text-decoration: none; color: white"> » </a></strong></p>
            
           </div>
