@@ -1,8 +1,10 @@
 {% extends 'layaout.html' %} {% block content %}
 
-<div class="row row-cols-1 row-cols-md-3 g-4 text-center">
-<!--     <h3>My Projects</h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aperiam?</p> -->
+
+
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4 text-center" data-masonry='{"percentPosition": true }' >
 
     {% for carta in cartas %}
 
@@ -19,17 +21,24 @@
         </div>
     </div> -->
 
-    <div class="col-md-4 p-4">
+    <div class="col-md-4 col-sm-6 p-4">
         <div class="card">
-            <img src={{ carta.Url }}
+            <img loading="lazy"
+            src={{ carta.Url }}
             class="img-top"
-             height="330px">
+             >
 
           <div class="card-header">{{ carta.title }}</div>
           <div class="card-body">
             <h5 class="card-title">{{ carta.name }}</h5>
-            <p class="card-text">{{ carta.description|truncatechars:50 }}</p>
+            <p class="card-text">{{ carta.description|truncatechars:50 }}<strong><a href="/cartas/{{ carta.id }}/" style="text-decoration: none; color: white"> » </a></strong></p>
+           
           </div>
+          <div>
+            <a href="{% url 'updatecarta' carta.id  %}"   class="btn btn-primary">update</a>
+          <a href="{% url 'deletecarta' carta.id  %}"  class="btn btn-danger">Delete</a>
+          </div>
+       
         </div>
     </div>
     {% endfor %}
